@@ -1,0 +1,147 @@
+#include <iostream>
+#include <vector>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+
+const int SIZE = 5; // Grid size
+const char WATER = '~';
+const char SHIP = 'S';
+const char HIT = 'X';
+const char MISS = 'O';
+
+struct Player {
+    vector<vector<char>> grid;
+    vector<vector<char>> shots;
+    string name;
+};
+
+// Function to initialize the grid with water
+void initializeGrid(vector<vector<char>>& grid) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            grid[i][j] = WATER;
+        }
+    }
+}
+
+// Function to print the grid
+void printGrid(const vector<vector<char>>& grid) {
+    cout << "  ";
+    for (int i = 0; i < SIZE; i++) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    for (int i = 0; i < SIZE; i++) {
+        cout << i << " ";
+        for (int j = 0; j < SIZE; j++) {
+            cout << grid[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+// Function to place a ship on the grid
+bool placeShip(vector<vector<char>>& grid, int x, int y) {
+    if (x >= 0 && x < SIZE && y >= 0 && y < SIZE && grid[x][y] == WATER) {
+        grid[x][y] = SHIP;
+        return true;
+    }
+    return false;
+}
+
+// Function to make a shot at the enemy grid
+bool shootAt(Player& enemy, int x, int y) {
+    if (x >= 0 && x < SIZE && y >= 0 && y < SIZE) {
+        if (enemy.grid[x][y] == SHIP) {
+            enemy.grid[x][y] = HIT; // Hit the ship
+            return true;
+        } else if (enemy.grid[x][y] == WATER) {
+            enemy.grid[x][y] = MISS; // Missed
+            return false;
+        }
+    }
+    return false;
+}
+
+// Function to check if a player has won
+bool checkWin(const Player& enemy) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            if (enemy.grid[i][j] == SHIP) {
+                return false; // If there's any ship left, the game continues
+            }
+        }
+    }
+    return true; // No ships left, the enemy has lost
+}
+
+int main() {
+    srand(time(0));
+
+    Player player1;
+    player1.name = "Player 1";
+    player1.grid.resize(SIZE, vector<char>(SIZE));
+    player1.shots.resize(SIZE, vector<char>(SIZE, WATER));
+
+    Player player2;
+    player2.name = "Player 2";
+    player2.grid.resize(SIZE, vector<char>(SIZE));
+    player2.shots.resize(SIZE, vector<char>(SIZE, WATER));
+
+    initializeGrid(player1.grid);
+    initializeGrid(player2.grid);
+
+    // Players place ships
+    cout << player1.name << ", place your ships!" << endl;
+    placeShip(player1.grid, 1, 1);  // Example static placement for simplicity
+    placeShip(player1.grid, 3, 4);  // Example static placement for simplicity
+
+    cout << player2.name << ", place your ships!" << endl;
+    placeShip(player2.grid, 0, 3);  // Example static placement for simplicity
+    placeShip(player2.grid, 2, 2);  // Example static placement for simplicity
+
+    // Game loop: Players take turns
+    bool gameOver = false;
+    bool player1Turn = true;
+    int x, y;
+
+    while (!gameOver) {
+        if (player1Turn) {
+            cout << player1.name << "'s turn!" << endl;
+            printGrid(player2.shots);
+            cout << "Enter coordinates (x y) to attack: ";
+            cin >> x >> y;
+            if (shootAt(player2, x, y)) {
+                cout << "Hit!" << endl;
+            } else {
+                cout << "Miss!" << endl;
+            }
+            player1Turn = false;
+        } else {
+            cout << player2.name << "'s turn!" << endl;
+            printGrid(player1.shots);
+            cout << "Enter coordinates (x y) to attack: ";
+            cin >> x >> y;
+            if (shootAt(player1, x, y)) {
+                cout << "Hit!" << endl;
+            } else {
+                cout << "Miss!" << endl;
+            }
+            player1Turn = true;
+        }
+
+        // Check if anyone has won
+        if (checkWin(player1)) {
+            cout << player2.name << " wins!" << endl;
+            gameOver = true;
+        } else if (checkWin(player2)) {
+            cout << player1.name << " wins!" << endl;
+            gameOver = true;
+        }
+    }
+
+    return 0;
+}
