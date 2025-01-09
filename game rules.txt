@@ -7,13 +7,13 @@ The **Battleship Game** is a two-player strategy game where players take turns g
 This version of the game is played in a console-based environment. The following rules explain the gameplay mechanics and how to interact with the game.
 
 ## Game Setup
-1. **Grid Dimensions**: 
+1. Grid Dimensions: 
    - Each player has a grid (usually 10x10, but this can vary).
    - The grid is labeled with letters (rows) and numbers (columns), e.g., `A1`, `B3`, etc.
 
-2. **Ships**:
+2. Ships:
    - Each player has a predefined fleet of ships. Common ship types include:
-     - **Carrier** (5 cells)
+     - Carrier (5 cells)
      - Battleship (4 cells)
      - Cruiser (3 cells)
      - Submarine (3 cells)
@@ -23,8 +23,6 @@ This version of the game is played in a console-based environment. The following
 3. **Ship Placement**:
    - Players place their ships on their grid either manually or randomly (depending on the implementation).
    - The placement is hidden from the opponent.
-
----
 
 ## Gameplay
 1. **Turn Structure**:
