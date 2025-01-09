@@ -1,0 +1,58 @@
+
+-- Create a database named 'battleship'
+CREATE DATABASE battleship;
+
+-- Use the 'battleship' database
+USE battleship;
+
+-- Create a table to store player information
+CREATE TABLE players (
+    player_id INT AUTO_INCREMENT PRIMARY KEY,
+    player_name VARCHAR(255) NOT NULL
+);
+
+-- Create a table to store game information
+CREATE TABLE games (
+    game_id INT AUTO_INCREMENT PRIMARY KEY,
+    player1_id INT,
+    player2_id INT,
+    winner_id INT,
+    game_status ENUM('in_progress', 'completed') DEFAULT 'in_progress',
+    FOREIGN KEY (player1_id) REFERENCES players(player_id),
+    FOREIGN KEY (player2_id) REFERENCES players(player_id),
+    FOREIGN KEY (winner_id) REFERENCES players(player_id)
+);
+
+-- Create a table to store player boards (10x10 grid)
+CREATE TABLE boards (
+    board_id INT AUTO_INCREMENT PRIMARY KEY,
+    player_id INT,
+    grid VARCHAR(100) DEFAULT '0000000000000000000000000000000000000000000000000000000000', 
+    FOREIGN KEY (player_id) REFERENCES players(player_id)
+);
+
+-- Create a table to store game moves (player's shots)
+CREATE TABLE moves (
+    move_id INT AUTO_INCREMENT PRIMARY KEY,
+    game_id INT,
+    player_id INT,
+    row INT,
+    col INT,
+    result ENUM('hit', 'miss', 'sunk') DEFAULT NULL,
+    FOREIGN KEY (game_id) REFERENCES games(game_id),
+    FOREIGN KEY (player_id) REFERENCES players(player_id)
+);
+
+Explanation:
+ * players table: Stores player information (player_id, player_name).
+ * games table: Stores game information (game_id, player1_id, player2_id, winner_id, game_status).
+ * boards table: Stores the state of each player's board (board_id, player_id, grid). The grid column can be a string of 100 characters, representing a 10x10 grid. Each character can represent the state of a cell (e.g., '0' for empty, 'S' for ship, 'H' for hit, 'M' for miss).
+ * moves table: Stores the history of moves made during a game (move_id, game_id, player_id, row, col, result).
+Note:
+ * This is a basic structure and can be further enhanced based on the specific requirements of your game.
+ * You can add more columns to these tables, such as timestamps, difficulty levels, etc.
+ * Consider using a more suitable data type for the grid column in the boards table, such as a JSON array or a separate table to better represent the 2D grid structure.
+ * This SQL script assumes you are using MySQL. If you are using a different database system, you may need to adjust the syntax accordingly.
+This database structure will provide a foundation for tracking players, games, board states, and moves in your battleship console game. You can then use these tables to implement game logic, track player progress, and display game information to the players.
+ * https://github.com/timoasumaniemi/darts-stats-
+server
