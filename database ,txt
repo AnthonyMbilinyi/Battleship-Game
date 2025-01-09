@@ -1,4 +1,4 @@
-
+This below rae the sql command for battleship game
 -- Create a database named 'battleship'
 CREATE DATABASE battleship;
 
