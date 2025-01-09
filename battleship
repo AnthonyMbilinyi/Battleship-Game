@@ -2,9 +2,7 @@
 #include <vector>
 #include <ctime>
 #include <cstdlib>
-
 using namespace std;
-
 const int SIZE = 5; // Grid size
 const char WATER = '~';
 const char SHIP = 'S';
