@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const int SIZE = 5; // Grid size
+const int SIZE = 5; // Grid size.
 const char WATER = '~';
 const char SHIP = 'S';
 const char HIT = 'X';
