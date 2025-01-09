@@ -38,13 +38,10 @@ This version of the game is played in a console-based environment. The following
    - The attacking player’s grid marks hits, misses, and sunk ships to track progress.
    - The defending player’s grid updates the status of their ships as they take damage.
 
----
-
 ## Winning the Game
 - The game ends when one player successfully sinks all of the opponent’s ships.
 - The player who sinks all the opponent's ships first is declared the winner.
 
----
 
 ## Additional Rules
 1. **Invalid Moves**:
@@ -56,17 +53,9 @@ This version of the game is played in a console-based environment. The following
 3. **Fog of War**:
    - Players cannot see the opponent’s grid or ship placements, maintaining the element of strategy and surprise.
 
----
-
 ## How to Play
 1. Run the program in your terminal or console.
 2. Follow on-screen instructions to place your ships and start the game.
-3. Take turns guessing the opponent's ship locations until one player wins.
-
----
-
+3. Take turns guessing the opponent's ship locations until one player wins
 Feel free to customize these rules further or adapt them based on the specific features of your game. If your implementation includes additional features like AI opponents, customizable grids, or special weapons, consider adding those to the documentation as well.
-
----
-
 Let me know if you'd like this tailored further or formatted differently for your GitHub repository!
