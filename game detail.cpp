@@ -30,6 +30,7 @@ Compile the Game:
 Use a C++ compiler to build the program:
 g++ -o battleship battleship.cpp
 Run the executable:
+
 ./battleship
 Game Setup:
 Choose single-player or two-player mode.
