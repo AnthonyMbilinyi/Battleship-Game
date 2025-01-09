@@ -46,7 +46,7 @@ Here's a breakdown of key functions you might find in a C++ console-based Battle
      * Call checkWinCondition() and end the game if a player wins.
 Example Code Snippet (Illustrative)
 #include <iostream>
-// ... other necessary headers
+// ... other necessary headers.
 
 using namespace std;
 
