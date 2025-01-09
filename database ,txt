@@ -22,7 +22,6 @@ CREATE TABLE games (
     FOREIGN KEY (player2_id) REFERENCES players(player_id),
     FOREIGN KEY (winner_id) REFERENCES players(player_id)
 );
-
 -- Create a table to store player boards (10x10 grid)
 CREATE TABLE boards (
     board_id INT AUTO_INCREMENT PRIMARY KEY,
