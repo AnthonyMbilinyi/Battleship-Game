@@ -32,7 +32,7 @@ class AI {
 private:
     vector<Ship> fleet;
     vector<vector<Cell>> grid;
-    vector<Coordinate> targetQueue; // Stores coordinates to focus on after a hit
+    vector<Coordinate> targetQueue; // Stores coordinates to focus on after a hit.
     vector<vector<bool>> guessed; // Keeps track of already guessed cells
 
 public:
