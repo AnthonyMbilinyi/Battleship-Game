@@ -1,6 +1,6 @@
 Here’s a detailed description of the rules and gameplay for your console-based Battleship game that you can include in your GitHub repository:
 
----
+
 
 # Battleship Game Rules and Gameplay
 
@@ -8,8 +8,6 @@ Here’s a detailed description of the rules and gameplay for your console-based
 The **Battleship Game** is a two-player strategy game where players take turns guessing the locations of their opponent's ships on a hidden grid. The objective is to sink all of the opponent's ships before they sink yours.
 
 This version of the game is played in a console-based environment. The following rules explain the gameplay mechanics and how to interact with the game.
-
----
 
 ## Game Setup
 1. **Grid Dimensions**: 
@@ -19,10 +17,10 @@ This version of the game is played in a console-based environment. The following
 2. **Ships**:
    - Each player has a predefined fleet of ships. Common ship types include:
      - **Carrier** (5 cells)
-     - **Battleship** (4 cells)
-     - **Cruiser** (3 cells)
-     - **Submarine** (3 cells)
-     - **Destroyer** (2 cells)
+     - Battleship (4 cells)
+     - Cruiser (3 cells)
+     - Submarine (3 cells)
+     - Destroyer (2 cells)
    - Ships can be placed horizontally or vertically, but they cannot overlap or extend beyond the grid.
 
 3. **Ship Placement**:
