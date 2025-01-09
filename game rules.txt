@@ -1,7 +1,4 @@
 Here’s a detailed description of the rules and gameplay for your console-based Battleship game that you can include in your GitHub repository:
-
-
-
 # Battleship Game Rules and Gameplay
 
 ## Introduction
