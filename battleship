@@ -75,7 +75,7 @@ bool checkWin(const Player& enemy) {
             }
         }
     }
-    return true; // No ships left, the enemy has lost
+    return true; // No ships left, the enemy has lost.
 }
 
 int main() {
